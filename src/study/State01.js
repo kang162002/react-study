@@ -11,8 +11,11 @@ function State01 (){
     // 화면이 리렌더링이 되는 상황에서도 상태변수 데이터가 유지됨
     // set 함수를 통해서 state변수값이 변경되면서 > 화면 리렌더링
 
-    //const | let [변수명, set함수명] = useState(초기값);
+    //  const     |     let [변수명, set함수명] = useState(초기값);
+    //      └둘다 쓸수있는┘
     let[cnt2,setCnt2] = useState(0);
+
+    
 
     return(
         <div className='App'>
@@ -32,6 +35,7 @@ function State01 (){
             //cnt2++; //state 변수 값을 그냥 변경
             //재렌더링 조건 > set함수를 통해서 state변수값 변경
             setCnt2(cnt2 + 1); // cnt2 = cnt1 +1;
+            // setCnt2(++cnt); // 학생의 의견
             //setCnt2(매개변수)
             //this.cnt2 = 매개변수;
             console.log('cnt2:' + cnt2);
