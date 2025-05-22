@@ -2,13 +2,14 @@ import logo from './logo.svg';
 import './App.css';
 import Basic01 from './study/Basic01';
 import State01 from './study/State01';
-import Practice01 from './study/Practice/Practice01';
+import Practice01 from './study/Practice/Practice01/Practice01';
 import State02 from './study/State02';
 import Export01 from './study/Export01';
-import Practice02 from './study/Practice/Practice02';
+import Practice02 from './study/Practice/Practice02/Practice02';
 import Props01 from './study/Props01';
 import Props02 from './study/Props02';
-
+import Practice03 from './study/Practice/Practice03/Practice03';
+import NewsBlog from './study/newsblog/NewsBlog';
 
 
 function App() {
@@ -18,7 +19,9 @@ function App() {
       // return<State02/>
         // return<Practice02/>
         // return<Props01/>
-         return<Props02/>
+        //  return<Props02/>
+        // return<Practice03/>
+        return <NewsBlog/>
       // return<Export01/>
   // return (
   //   <div className="App">
