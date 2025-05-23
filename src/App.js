@@ -10,6 +10,7 @@ import Props01 from './study/Props01';
 import Props02 from './study/Props02';
 import Practice03 from './study/Practice/Practice03/Practice03';
 import NewsBlog from './study/newsblog/NewsBlog';
+import BoxApp from './study/Practice/Practice04/BoxApp';
 
 
 function App() {
@@ -21,7 +22,8 @@ function App() {
         // return<Props01/>
         //  return<Props02/>
         // return<Practice03/>
-        return <NewsBlog/>
+        // return <NewsBlog/>
+          return <BoxApp/>
       // return<Export01/>
   // return (
   //   <div className="App">
