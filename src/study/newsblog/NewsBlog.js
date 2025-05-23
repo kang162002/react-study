@@ -58,11 +58,11 @@ function NewsBlog() {
                         // setNews(temp);          // setNews로 temp를 다시 저장
 
                         //배열 state변수 바꾸는법 : 배열복사 > 값 변경/추가/삭제 > set함수로 원래 배열에 저장
-                    //     setInputText('');   // 공백 > input value=[inputText] 
+                        //     setInputText('');   // 공백 > input value=[inputText] 
 
-                    // } else {
-                    //     alert("내용을 입력 후 등록하세요~")
-                    //     setInputText('');
+                        // } else {
+                        //     alert("내용을 입력 후 등록하세요~")
+                        //     setInputText('');
 
                     }
                     if (inputText.trim().length == 0) {
@@ -120,10 +120,16 @@ function NewsBlog() {
                                     // 새로운 배열로 상태 업데이트
                                     setLikeCountArr(updatedLikes);
                                 }}>
-                                    💖{likeCountArr[index]}
-                                </span>
-                            </h4>
+                                    💖</span>{likeCountArr[index]}</h4>
                             <p>내용 무</p> {/* 뉴스 내용은 현재 없음 */}
+                            <button onClick={() => {
+                                let temp =[...news];
+                                temp.splice(index, 1);
+                                setNews(temp);
+                                likeCountArr.splice(index, 1); //
+                            
+
+                            }}>삭제</button>
                         </div>
                     );
                 })
