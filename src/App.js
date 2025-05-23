@@ -22,8 +22,8 @@ function App() {
         // return<Props01/>
         //  return<Props02/>
         // return<Practice03/>
-        // return <NewsBlog/>
-          return <BoxApp/>
+        return <NewsBlog/>
+          // return <BoxApp/>
       // return<Export01/>
   // return (
   //   <div className="App">
