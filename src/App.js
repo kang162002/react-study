@@ -11,7 +11,7 @@ import Props02 from './study/Props02';
 import Practice03 from './study/Practice/Practice03/Practice03';
 import NewsBlog from './study/newsblog/NewsBlog';
 import BoxApp from './study/Practice/Practice04/BoxApp';
-import FoodMarket from './foodmarket/components/FoodMarket';
+import FoodMarket from './foodmarket/pages/FoodMarket';
 
 
 function App() {
