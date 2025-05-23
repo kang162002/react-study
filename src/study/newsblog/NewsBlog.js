@@ -122,12 +122,12 @@ function NewsBlog() {
                                 }}>
                                     💖</span>{likeCountArr[index]}</h4>
                             <p>내용 무</p> {/* 뉴스 내용은 현재 없음 */}
-                            <button onClick={() => {
-                                let temp =[...news];
+                            <button onClick={() => {    
+                                let temp =[...news];    
                                 temp.splice(index, 1);
                                 setNews(temp);
                                 likeCountArr.splice(index, 1); //
-                            
+                                // 텍스트 & 좋아요 클릭한숫자까지 삭제?
 
                             }}>삭제</button>
                         </div>
