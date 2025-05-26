@@ -13,7 +13,7 @@ function BoxColor() {
         <div className="box" style={{ backgroundColor: 'green' }}></div>,
         <div className="box" style={{ backgroundColor: 'black' }}></div>
     ]);
-    //  컬러 박스 추가
+    //  동적 컴포넌트  컬러 박스 추가
     return (
 
         <div>
@@ -74,11 +74,14 @@ function BoxColor() {
 }
 */
 
-
+//
 function BoxColor() {
     let [boxes, setBoxes] = useState([
         'red', 'blue', 'green', 'black'
     ]);
+
+
+    let [remove, setRemove] = useState();
 
     return (
         <div>
@@ -120,11 +123,11 @@ function BoxColor() {
                  }}>뒤 박스 삭제</button>
             </div>
 
-
+                 
             {
-               boxes.map((item)=>{
+               boxes.map((color , index)=>{
                 //   return<div className='box' style={{backgroundColor:item}}></div>
-                return<ColorBox bgColor={item} />
+                return<ColorBox bgColor={color} index={index} boxes={boxes} setBoxes={setBoxes}  />
                }) 
             }
         </div>

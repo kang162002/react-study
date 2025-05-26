@@ -6,15 +6,15 @@ display: inline-block;
 }
 
 
-.red{
+.bg-red{
     background-color: red;
 
 }
 
-.blue {
+.bg-blue {
     background-color: blue;
 }
 
-.green {
+.bg-green {
     background-color: green;
 }
