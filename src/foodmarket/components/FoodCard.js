@@ -2,14 +2,17 @@ import { useState } from "react";
 import { Container } from "react-bootstrap";
 import { useNavigate } from 'react-router';
 import { Card, Button } from 'react-bootstrap';
-function FoodCard(props) {
 
 
+
+function FoodCard({food}) {
+
+    const navigate = useNavigate();
     // 컴포넌트로 정리만들기
     return (
 
         <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src={process.env.PUBLIC_URL + props.food.imgPath} />
+             <Card.Img variant="top" src={process.env.PUBLIC_URL + food.imgPath} />
             <Card.Body>
                 <Card.Title>{props.food.title}</Card.Title>
                 <Card.Text>

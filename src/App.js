@@ -12,7 +12,8 @@ import Practice03 from './study/Practice/Practice03/Practice03';
 import NewsBlog from './study/newsblog/NewsBlog';
 import BoxApp from './study/Practice/Practice04/BoxApp';
 import FoodMarket from './foodmarket/pages/FoodMarket';
-import BoxColor from './pracice/pracice01/BoxColor';
+import BoxColor from './study/Practice/practice05/BoxColor';
+import Practice02_1 from './study/Practice/Practice06/Practice02_1';
 
 
 function App() {
@@ -25,10 +26,12 @@ function App() {
         //  return<Props02/>
         // return<Practice03/>
         // return <NewsBlog/>
-        return<FoodMarket/>
+        // return<FoodMarket/>
         // return<BoxColor/>
           // return <BoxApp/>
       // return<Export01/>
+      return <Practice02_1/>
+     
   // return (
   //   <div className="App">
   //     <header className="App-header">

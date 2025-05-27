@@ -11,8 +11,8 @@ function Home({ foods }) {
                     {
                         foods.map((food, index) => {
                             return (
-                                <Col md={4} sm={6}>
-                                    <FoodCard foods={foods} index={index} food={food} />
+                                <Col md={4} sm={6} key={food.id}>
+                                    <FoodCard food={food} />
                                 </Col>
                             );
                         })

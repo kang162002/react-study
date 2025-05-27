@@ -7,21 +7,22 @@ import './FoodMarket.css';
 // import Navbar from 'react-bootstrap/Navbar';
 import { Nav, Navbar, Container, Card, Button, Row, Col } from 'react-bootstrap';
 
-import banner_bg from '../images/banner_bg.jpg';
-import food1 from '../images/food1.jpg';
-import food2 from '../images/food2.jpg';
-import food3 from '../images/food3.jpg';
+import banner_bg from '../image/banner_bg.jpg';
+import food1 from '../image/food1.jpg';
+import food2 from '../image/food2.jpg';
+import food3 from '../image/food3.jpg';
 
-import foodsData from '../data/foodsData';
+import FoodsData from '../data/FoodsData';
 import { useState } from 'react';
 import FoodCard from '../components/FoodCard';
 
 import { Routes, Route, Link, useNavigate } from 'react-router';
 import Home from './Home';
+import Detail from './Detail';
 
 function FoodMarket() {
 
-    let [foods, setFoods] = useState(foodsData);
+    let [foods, setFoods] = useState(FoodsData);
 
     let navigate = useNavigate();
 
@@ -100,3 +101,4 @@ function FoodMarket() {
         </div>
     )
 }
+export default FoodMarket;
