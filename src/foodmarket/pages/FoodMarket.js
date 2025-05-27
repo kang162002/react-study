@@ -5,17 +5,25 @@ import './FoodMarket.css';
 // import Container from 'react-bootstrap/Container';
 // import Nav from 'react-bootstrap/Nav';
 // import Navbar from 'react-bootstrap/Navbar';
-import { Nav, Navbar, Container, Card, Button, Row, Col } from 'react-bootstrap'
+import { Nav, Navbar, Container, Card, Button, Row, Col } from 'react-bootstrap';
 
-import banner_bg from '../image/banner_bg.jpg';
-import food1 from '../image/food1.jpg';
-import food2 from '../image/food2.jpg';
-import food3 from '../image/food3.jpg';
+import banner_bg from '../images/banner_bg.jpg';
+import food1 from '../images/food1.jpg';
+import food2 from '../images/food2.jpg';
+import food3 from '../images/food3.jpg';
 
+import foodsData from '../data/foodsData';
+import { useState } from 'react';
+import FoodCard from '../components/FoodCard';
 
-
+import { Routes, Route, Link, useNavigate } from 'react-router';
+import Home from './Home';
 
 function FoodMarket() {
+
+    let [foods, setFoods] = useState(foodsData);
+
+    let navigate = useNavigate();
 
     return (
         <div>
@@ -24,79 +32,71 @@ function FoodMarket() {
                     <Navbar.Brand href="#home">Market</Navbar.Brand>
                     <Nav className="me-auto">
                         <Nav.Link href="#home">Home</Nav.Link>
-                        <Nav.Link href="#features">FoodsData</Nav.Link>
+                        <Nav.Link href="#features">FoodDetail</Nav.Link>
                         <Nav.Link href="#pricing">Info</Nav.Link>
+                        {/* <Nav.Link> <Link to="/">Home</Link> </Nav.Link>
+                        <Nav.Link> <Link to="/detail">FoodDetail</Link> </Nav.Link>
+                        <Nav.Link> <Link to="/info">Info</Link> </Nav.Link> */}
+                        <Nav.Link onClick={() => { navigate("/") }}> Home </Nav.Link>
+                        <Nav.Link onClick={() => { navigate("/detail") }}> FoodDetail </Nav.Link>
+                        <Nav.Link onClick={() => { navigate("/info") }}> Info </Nav.Link>
                     </Nav>
                 </Container>
             </Navbar>
 
-            {/*
-                이미지 사용
-                1.) css 로 처리하는경우 : 이미지 경로 
-                2.) React Component js 코드에서 처리하는 경우 : import 한 이후에 사용 가능
-                3.) public 폴더에 이미지 저장후, 서버 경로로 접근해서 사용
-                    src='/image/food1.jpg'/>
-                
-                      *권장방식 :  src = { process.env.PUBLIC +'/image/food1.jpg'}
-                
-                *기본 서비스 경로 루트 경로(/)
-                서버주소 : 포트번호/
+           {/* react-router : 접속한 경로별로 보여줄 화면을 설정하는데 도움을주는 라이브러리 
+                                + 기타 URL 주소에 관한 각종 처리
 
-                package.json > homepage 필드 설정
+                페이지 이동 처리
+
+                1) Link  (=a 태그 비슷)   
+                    내부 요소를 눌렀을때 페이지 이동
+                    <Link to="이동할경로"></Link>
+
+
+                2) useNavigate (= location.href 비슷)
+                    함수형태로 호출해서 이동 처리 
+
+                    경로처리 객체를 생성
+                    let navigate = useNavigate();
+
+                    이동할 경로를 매개변수로 전달하면서 함수 사용
+                    navigate("이동할 경로");
+                
+                주소창에 포함되어있는 값을 활용
+                    /경로/:경로상에서인식할위치변수명
+                    path="/detail/:id"
+
+                    경로파라미터 인식 ->    useParams();
 
             */}
+            <Routes>
+                <Route path="/" element={<Home foods={foods} />}></Route>
+                <Route path="/home" element={<Home foods={foods} />}></Route>
+                <Route path="/detail" element={<h1>/detail</h1>}></Route>
+                <Route path="/detail/:id" element={<Detail foods={foods} />}></Route>
+                        
+                {/* 
+                    localhost:3000/detail/fd000
+                    localhost:3000/detail/fd001
+                    localhost:3000/detail/fd002
+                    localhost:3000/detail/fd003
+                    
+                 */}
 
-            {/* <div className='main-bg' style={{background: 'url(' + banner_bg + ')'}} ></div> */}
-            <div className='main-bg'></div>
+                {/* <Route path="/info/company" element={<h1>/info company</h1>}></Route>
+                <Route path="/info/contact" element={<h1>/info contact</h1>}></Route> */}
 
-            <Container>
-                <Row>
-                    <Col md={4} sm={6}>
-                        <Card style={{ width: '18rem' }} >
-                            {/* <Card.Img variant="top" src={food1} /> */}
-                            <Card.Img variant="top" src={process.env.PUBLIC_URL + '/image/food1.jpg'} />
-                            <Card.Body>
-                                <Card.Title>Card Title</Card.Title>
-                                <Card.Text>
-                                    Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.
-                                </Card.Text>
-                                <Button variant="primary">Go somewhere</Button>
-                            </Card.Body>
-                        </Card>
-                    </Col>
+                {/* 서브경로 */}
+                <Route path="/info">
+                    <Route path="company" element={<h1>/info company</h1>}></Route>
+                    <Route path="contact" element={<h1>/info contact</h1>}></Route>
+                </Route>
 
-                    <Col md={4} sm={6}>
-                        <Card style={{ width: '18rem' }}>
-                            <Card.Img variant="top" src={process.env.PUBLIC_URL + '/image/food2.jpg'} />
-                            <Card.Body>
-                                <Card.Title>Card Title</Card.Title>
-                                <Card.Text>
-                                    Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.
-                                </Card.Text>
-                                <Button variant="primary">Go somewhere</Button>
-                            </Card.Body>
-                        </Card>
-                    </Col>
+                {/*  * 표시 : all */}
+                <Route path="*" element={<div><h1>잘못된 경로입니다. 주소를 확인하세요.</h1></div>}></Route>
+            </Routes>
 
-                    <Col md={4} sm={6}>
-                        <Card style={{ width: '18rem' }}>
-                            <Card.Img variant="top" src={process.env.PUBLIC_URL + '/image/food3.jpg'} />
-                            <Card.Body>
-                                <Card.Title>Card Title</Card.Title>
-                                <Card.Text>
-                                    Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.
-                                </Card.Text>
-                                <Button variant="primary">Go somewhere</Button>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                </Row>
-            </Container>
         </div>
     )
-
 }
-export default FoodMarket;
