@@ -26,11 +26,11 @@ function App() {
         //  return<Props02/>
         // return<Practice03/>
         // return <NewsBlog/>
-        // return<FoodMarket/>
+        return<FoodMarket/>
         // return<BoxColor/>
           // return <BoxApp/>
       // return<Export01/>
-      return <Practice02_1/>
+      // return <Practice02_1/>
      
   // return (
   //   <div className="App">
