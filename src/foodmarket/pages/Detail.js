@@ -91,7 +91,7 @@ function Detail({ foods }) {
             // 'start ' > 'start end'
         }, 2);
 
-    }, [])                   
+    }, [])
 
 
 
@@ -168,7 +168,7 @@ function Detail({ foods }) {
         // 단일 클래스 적용 
         <p  className={food.price >= 10000 ? 'price-red' : 'price-blue'}>{food.price}</p>
     
-        //  다중 클래스 적용 
+        //  다중 클래스 적용  // 사망연산자
         <p  className={food.price +10000 ? 'price-red text-strong' : 'price-blue  text-strong')}>{food.price}</p>
         <p  className={food.price +10000 ? 'price-red text-strong' : 'price-blue  text-strong')}>{food.price}</p>
         <p  className={'text-strong' +  (food.praice > = 10000 ? 'price-red : 'price-blue</p>)  }</p>
@@ -211,13 +211,23 @@ function Detail({ foods }) {
                             if (orderCount > 0)
                                 setOrderCount(orderCount - 1);
                         }}>-</Button>
+
                         <span> {orderCount} </span>
+
                         <Button variant="dark" onClick={() => {
-                            setOrderCount(orderCount + 1);
+                            if (food.stockCount >= orderCount + 1 )
+                                setOrderCount(orderCount + 1);
+                            
                         }}>+</Button>
                     </p>
 
-                    <Button variant="primary">주문하기</Button>
+                        {
+                            food.stockCount > 0 ?  
+                            <Button variant="primary">주문하기</Button> 
+                            :
+                             <Button variant="danger" disabled>품절</Button>
+                        }
+
                 </Col>
             </Row>
 
